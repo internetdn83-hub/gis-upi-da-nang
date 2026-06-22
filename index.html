@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GIS Quy Hoạch – Hệ Thống Thông Tin Địa Lý Quy Hoạch Đô Thị</title>
+  <meta name="description" content="Nền tảng GIS Quy Hoạch hiện đại – tra cứu bản đồ quy hoạch đất đai, đô thị và hạ tầng toàn quốc. Dữ liệu chuẩn xác, cập nhật liên tục." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="17" stroke="url(#lg1)" stroke-width="2"/>
+            <path d="M8 18 Q18 6 28 18 Q18 30 8 18Z" fill="url(#lg2)" opacity="0.8"/>
+            <circle cx="18" cy="18" r="4" fill="#00f5d4"/>
+            <defs>
+              <linearGradient id="lg1" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00b4d8"/><stop offset="1" stop-color="#00f5d4"/>
+              </linearGradient>
+              <linearGradient id="lg2" x1="8" y1="6" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#0077b6" stop-opacity="0.6"/><stop offset="1" stop-color="#00f5d4" stop-opacity="0.4"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">GIS<span class="accent">Quy Hoạch</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Tính Năng</a></li>
+        <li><a href="#how">Cách Dùng</a></li>
+        <li><a href="#stats">Dữ Liệu</a></li>
+        <li><a href="#pricing">Gói Dịch Vụ</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#" class="btn-ghost">Đăng Nhập</a>
+        <a href="#" class="btn-primary" id="nav-cta-btn">Dùng Miễn Phí</a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="gis_hero.png" alt="Bản đồ GIS quy hoạch" class="hero-bg-img" />
+      <div class="hero-bg-overlay"></div>
+      <div class="grid-lines"></div>
+    </div>
+
+    <!-- Floating map pins -->
+    <div class="map-pin pin-1" style="--delay:0s">
+      <div class="pin-dot"></div><div class="pin-ring"></div>
+      <div class="pin-label">Hà Nội</div>
+    </div>
+    <div class="map-pin pin-2" style="--delay:0.4s">
+      <div class="pin-dot"></div><div class="pin-ring"></div>
+      <div class="pin-label">Đà Nẵng</div>
+    </div>
+    <div class="map-pin pin-3" style="--delay:0.8s">
+      <div class="pin-dot"></div><div class="pin-ring"></div>
+      <div class="pin-label">TP.HCM</div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Cập nhật dữ liệu theo thời gian thực
+      </div>
+      <h1 class="hero-title">
+        Bản Đồ Quy Hoạch<br/>
+        <span class="gradient-text">Chính Xác – Tức Thì</span>
+      </h1>
+      <p class="hero-desc">
+        Tra cứu thông tin quy hoạch đất đai, đô thị, giao thông trên nền tảng GIS hiện đại nhất Việt Nam. 
+        Dữ liệu chuẩn xác từ các cơ quan nhà nước, cập nhật liên tục.
+      </p>
+      <div class="hero-actions">
+        <a href="#" class="btn-primary btn-lg" id="hero-cta-main">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Tra Cứu Ngay
+        </a>
+        <a href="#how" class="btn-outline btn-lg" id="hero-cta-secondary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg>
+          Xem Demo
+        </a>
+      </div>
+      <div class="hero-trust">
+        <span>Tin dùng bởi:</span>
+        <div class="trust-logos">
+          <div class="trust-item">Sở TNMT</div>
+          <div class="trust-item">UBND Tỉnh</div>
+          <div class="trust-item">BQL Dự Án</div>
+          <div class="trust-item">Nhà Đầu Tư</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search bar -->
+    <div class="hero-search">
+      <div class="search-box">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <circle cx="11" cy="11" r="8" stroke="#00f5d4" stroke-width="2"/>
+          <path d="m21 21-4.35-4.35" stroke="#00f5d4" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input type="text" id="hero-search-input" placeholder="Nhập địa chỉ, tên đường, thửa đất..." />
+        <button class="search-btn" id="hero-search-btn">Tra cứu</button>
+      </div>
+      <div class="search-tags">
+        <span class="tag">Đất ở đô thị</span>
+        <span class="tag">Đất nông nghiệp</span>
+        <span class="tag">Vùng quy hoạch</span>
+        <span class="tag">Hành lang giao thông</span>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Cuộn xuống để khám phá</span>
+      <div class="scroll-arrow">
+        <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
+          <path d="M8 0v20M2 14l6 6 6-6" stroke="#00f5d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-bar" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item" data-count="63" data-suffix=" tỉnh/thành">
+          <div class="stat-number">0</div>
+          <div class="stat-label">Phủ sóng toàn quốc</div>
+        </div>
+        <div class="stat-item" data-count="500" data-suffix="M+ thửa">
+          <div class="stat-number">0</div>
+          <div class="stat-label">Dữ liệu thửa đất</div>
+        </div>
+        <div class="stat-item" data-count="98" data-suffix="% chính xác">
+          <div class="stat-number">0</div>
+          <div class="stat-label">Độ chính xác dữ liệu</div>
+        </div>
+        <div class="stat-item" data-count="50" data-suffix="K+ người dùng">
+          <div class="stat-number">0</div>
+          <div class="stat-label">Người dùng mỗi ngày</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Tính Năng Nổi Bật</div>
+        <h2 class="section-title">Công Cụ Mạnh Mẽ<br/><span class="gradient-text">Cho Mọi Nhu Cầu</span></h2>
+        <p class="section-desc">Từ tra cứu cá nhân đến phân tích chuyên sâu cho doanh nghiệp và cơ quan nhà nước</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card featured" id="feature-card-main">
+          <div class="feature-img-wrap">
+            <img src="gis_map.png" alt="Bản đồ GIS trực quan" class="feature-img" />
+            <div class="feature-img-overlay">
+              <div class="overlay-badge">LIVE</div>
+            </div>
+          </div>
+          <div class="feature-content">
+            <div class="feature-icon" style="--icon-color:#00f5d4">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Bản Đồ Tương Tác</h3>
+            <p>Hiển thị các lớp quy hoạch đa chiều: đất ở, đất nông nghiệp, vùng bảo tồn, hành lang giao thông với màu sắc chuẩn xác.</p>
+            <a href="#" class="feature-link" id="feature-link-map">Khám phá →</a>
+          </div>
+        </div>
+
+        <div class="feature-card" id="feature-card-search">
+          <div class="feature-icon" style="--icon-color:#7b5ea7">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Tra Cứu Tức Thì</h3>
+          <p>Nhập địa chỉ hoặc tọa độ, nhận ngay thông tin quy hoạch chi tiết chỉ trong vài giây.</p>
+          <ul class="feature-list">
+            <li>Mục đích sử dụng đất</li>
+            <li>Chỉ tiêu quy hoạch</li>
+            <li>Hệ số sử dụng đất</li>
+          </ul>
+        </div>
+
+        <div class="feature-card" id="feature-card-layer">
+          <div class="feature-icon" style="--icon-color:#f77f00">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3>Đa Lớp Bản Đồ</h3>
+          <p>Chồng lớp nhiều tầng dữ liệu: quy hoạch sử dụng đất, giao thông, hạ tầng kỹ thuật, ranh giới hành chính.</p>
+          <ul class="feature-list">
+            <li>Quy hoạch 1/2000 & 1/500</li>
+            <li>Hạ tầng giao thông</li>
+            <li>Thoát nước, điện, viễn thông</li>
+          </ul>
+        </div>
+
+        <div class="feature-card" id="feature-card-export">
+          <div class="feature-icon" style="--icon-color:#06d6a0">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Xuất Dữ Liệu</h3>
+          <p>Tải xuống bản đồ quy hoạch dưới nhiều định dạng: PDF, PNG, GeoJSON, Shapefile cho mọi nhu cầu chuyên môn.</p>
+          <ul class="feature-list">
+            <li>Xuất PDF chất lượng cao</li>
+            <li>GeoJSON / Shapefile</li>
+            <li>Tích hợp API</li>
+          </ul>
+        </div>
+
+        <div class="feature-card" id="feature-card-alert">
+          <div class="feature-icon" style="--icon-color:#ef233c">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.73 21a2 2 0 01-3.46 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Cảnh Báo Thay Đổi</h3>
+          <p>Nhận thông báo ngay khi có điều chỉnh quy hoạch tại khu vực quan tâm. Không bỏ lỡ cơ hội đầu tư.</p>
+          <ul class="feature-list">
+            <li>Thông báo thời gian thực</li>
+            <li>Lịch sử thay đổi</li>
+            <li>Báo cáo định kỳ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Cách Sử Dụng</div>
+        <h2 class="section-title">Chỉ <span class="gradient-text">3 Bước Đơn Giản</span></h2>
+        <p class="section-desc">Không cần cài đặt, không cần kinh nghiệm GIS. Tra cứu ngay trên trình duyệt.</p>
+      </div>
+      <div class="steps">
+        <div class="step" id="step-1">
+          <div class="step-num">01</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="url(#s1)" stroke-width="2" stroke-dasharray="4 4"/><circle cx="24" cy="24" r="8" fill="url(#s1)" opacity="0.3"/><circle cx="24" cy="24" r="3" fill="#00f5d4"/>
+            <defs><linearGradient id="s1" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#00b4d8"/><stop offset="1" stop-color="#00f5d4"/></linearGradient></defs></svg>
+          </div>
+          <h3>Tìm Kiếm Địa Điểm</h3>
+          <p>Nhập địa chỉ, tên đường, hoặc kéo thả ghim trực tiếp lên bản đồ. Hệ thống hỗ trợ tìm kiếm toàn quốc.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step" id="step-2">
+          <div class="step-num">02</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="4" stroke="url(#s2)" stroke-width="2"/><rect x="14" y="14" width="8" height="8" fill="url(#s2)" opacity="0.4"/><rect x="26" y="14" width="8" height="8" fill="#f77f00" opacity="0.4"/><rect x="14" y="26" width="8" height="8" fill="#06d6a0" opacity="0.4"/><rect x="26" y="26" width="8" height="8" fill="url(#s2)" opacity="0.4"/>
+            <defs><linearGradient id="s2" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#7b5ea7"/><stop offset="1" stop-color="#00f5d4"/></linearGradient></defs></svg>
+          </div>
+          <h3>Xem Thông Tin Quy Hoạch</h3>
+          <p>Bản đồ hiển thị lập tức các lớp quy hoạch với màu sắc trực quan. Nhấp vào bất kỳ vùng nào để xem chi tiết.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step" id="step-3">
+          <div class="step-num">03</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M24 6L6 18v24h36V18L24 6z" stroke="url(#s3)" stroke-width="2" stroke-linejoin="round"/><path d="M18 42V30h12v12" stroke="url(#s3)" stroke-width="2" stroke-linejoin="round"/>
+            <defs><linearGradient id="s3" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#06d6a0"/><stop offset="1" stop-color="#00b4d8"/></linearGradient></defs></svg>
+          </div>
+          <h3>Tải Xuất & Chia Sẻ</h3>
+          <p>Lưu bản đồ, xuất báo cáo PDF hoặc tích hợp dữ liệu vào hệ thống của bạn qua API mạnh mẽ.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Gói Dịch Vụ</div>
+        <h2 class="section-title">Lựa Chọn <span class="gradient-text">Phù Hợp Với Bạn</span></h2>
+        <p class="section-desc">Miễn phí cho cá nhân, mạnh mẽ cho doanh nghiệp và cơ quan nhà nước.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card" id="pricing-free">
+          <div class="pricing-header">
+            <div class="plan-name">Miễn Phí</div>
+            <div class="plan-price"><span class="price-amount">0</span><span class="price-unit">đ/tháng</span></div>
+            <p class="plan-desc">Phù hợp cho cá nhân tra cứu thông tin cơ bản</p>
+          </div>
+          <ul class="plan-features">
+            <li class="ok">Tra cứu quy hoạch cơ bản</li>
+            <li class="ok">Bản đồ 2D tương tác</li>
+            <li class="ok">Tìm kiếm theo địa chỉ</li>
+            <li class="ok">10 lượt tra cứu/ngày</li>
+            <li class="no">Xuất PDF / GeoJSON</li>
+            <li class="no">Cảnh báo thay đổi</li>
+            <li class="no">Truy cập API</li>
+          </ul>
+          <a href="#" class="btn-outline plan-btn" id="plan-free-btn">Dùng Miễn Phí</a>
+        </div>
+
+        <div class="pricing-card popular" id="pricing-pro">
+          <div class="popular-badge">Phổ Biến Nhất</div>
+          <div class="pricing-header">
+            <div class="plan-name">Chuyên Nghiệp</div>
+            <div class="plan-price"><span class="price-amount">499K</span><span class="price-unit">đ/tháng</span></div>
+            <p class="plan-desc">Dành cho nhà đầu tư, môi giới và chuyên gia BĐS</p>
+          </div>
+          <ul class="plan-features">
+            <li class="ok">Toàn bộ tính năng miễn phí</li>
+            <li class="ok">Tra cứu không giới hạn</li>
+            <li class="ok">Xuất PDF / PNG / GeoJSON</li>
+            <li class="ok">Cảnh báo thay đổi quy hoạch</li>
+            <li class="ok">Bản đồ 3D</li>
+            <li class="ok">Lịch sử quy hoạch</li>
+            <li class="no">Truy cập API đầy đủ</li>
+          </ul>
+          <a href="#" class="btn-primary plan-btn" id="plan-pro-btn">Đăng Ký Ngay</a>
+        </div>
+
+        <div class="pricing-card" id="pricing-enterprise">
+          <div class="pricing-header">
+            <div class="plan-name">Doanh Nghiệp</div>
+            <div class="plan-price"><span class="price-amount">Liên hệ</span></div>
+            <p class="plan-desc">Cho cơ quan nhà nước, tổ chức và doanh nghiệp lớn</p>
+          </div>
+          <ul class="plan-features">
+            <li class="ok">Toàn bộ tính năng Pro</li>
+            <li class="ok">API tích hợp đầy đủ</li>
+            <li class="ok">Shapefile / GDB export</li>
+            <li class="ok">Hỗ trợ triển khai on-premise</li>
+            <li class="ok">SLA 99.9% uptime</li>
+            <li class="ok">Đào tạo & hỗ trợ kỹ thuật</li>
+            <li class="ok">Tùy chỉnh theo yêu cầu</li>
+          </ul>
+          <a href="#" class="btn-outline plan-btn" id="plan-enterprise-btn">Liên Hệ Tư Vấn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-glow"></div>
+        <div class="cta-content">
+          <h2>Bắt Đầu Tra Cứu<br/><span class="gradient-text">Hoàn Toàn Miễn Phí</span></h2>
+          <p>Hơn 50.000 người dùng tin tưởng mỗi ngày. Không cần thẻ tín dụng.</p>
+          <div class="cta-actions">
+            <a href="#" class="btn-primary btn-lg" id="cta-main-btn">Tra Cứu Ngay →</a>
+            <a href="#" class="btn-ghost btn-lg" id="cta-demo-btn">Xem Demo</a>
+          </div>
+        </div>
+        <div class="cta-visual">
+          <div class="cta-map-preview">
+            <div class="map-zone z1"></div>
+            <div class="map-zone z2"></div>
+            <div class="map-zone z3"></div>
+            <div class="map-zone z4"></div>
+            <div class="map-pulse"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="17" stroke="url(#lf1)" stroke-width="2"/><path d="M8 18 Q18 6 28 18 Q18 30 8 18Z" fill="url(#lf2)" opacity="0.8"/><circle cx="18" cy="18" r="4" fill="#00f5d4"/>
+              <defs><linearGradient id="lf1" x1="0" y1="0" x2="36" y2="36"><stop stop-color="#00b4d8"/><stop offset="1" stop-color="#00f5d4"/></linearGradient><linearGradient id="lf2" x1="8" y1="6" x2="28" y2="30"><stop stop-color="#0077b6" stop-opacity="0.6"/><stop offset="1" stop-color="#00f5d4" stop-opacity="0.4"/></linearGradient></defs></svg>
+            </div>
+            <span class="logo-text">GIS<span class="accent">Quy Hoạch</span></span>
+          </a>
+          <p>Nền tảng thông tin địa lý quy hoạch đô thị hàng đầu Việt Nam.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" id="social-facebook" aria-label="Facebook">fb</a>
+            <a href="#" class="social-btn" id="social-zalo" aria-label="Zalo">zl</a>
+            <a href="#" class="social-btn" id="social-youtube" aria-label="YouTube">yt</a>
+          </div>
+        </div>
+        <div class="footer-links-group">
+          <h4>Sản Phẩm</h4>
+          <ul>
+            <li><a href="#">Bản đồ quy hoạch</a></li>
+            <li><a href="#">Tra cứu thửa đất</a></li>
+            <li><a href="#">API tích hợp</a></li>
+            <li><a href="#">Ứng dụng mobile</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Hỗ Trợ</h4>
+          <ul>
+            <li><a href="#">Hướng dẫn sử dụng</a></li>
+            <li><a href="#">Câu hỏi thường gặp</a></li>
+            <li><a href="#">Tài liệu API</a></li>
+            <li><a href="#">Liên hệ hỗ trợ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Công Ty</h4>
+          <ul>
+            <li><a href="#">Về chúng tôi</a></li>
+            <li><a href="#">Tin tức</a></li>
+            <li><a href="#">Tuyển dụng</a></li>
+            <li><a href="#">Chính sách bảo mật</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 GISQuyHoach.vn – Bảo lưu mọi quyền.</p>
+        <p>Dữ liệu quy hoạch được cung cấp bởi các cơ quan nhà nước có thẩm quyền.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
