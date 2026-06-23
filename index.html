@@ -431,10 +431,10 @@ a{text-decoration:none;color:inherit}
       </div>
       <div class="filter-row">
         <span class="filter-lbl">HIỂN THỊ</span>
-        <div class="chip on" id="cf-lbl" title="Nhãn tên">
+        <div class="chip" id="cf-lbl" title="Nhãn tên">
           <i class="fa-solid fa-tags"></i>Nhãn tên
         </div>
-        <div class="chip on" id="cf-layer" title="Lớp ranh giới">
+        <div class="chip" id="cf-layer" title="Lớp ranh giới">
           <i class="fa-solid fa-draw-polygon"></i>Ranh giới
         </div>
       </div>
@@ -512,7 +512,7 @@ const COLORS = {
 let map, geoLayer, labelsGroup;
 let allFeatures = [];
 let activeFilter = 'all';
-let showLabels = true, showLayer = true;
+let showLabels = false, showLayer = false;
 let opacity = 0.6;
 let activeCard = null, activeLeafLayer = null;
 let sortBy = 'name';
@@ -951,7 +951,8 @@ async function boot(){
         leafMap[id]=layer;
         onEach(f,layer);
       }
-    }).addTo(map);
+    });
+    if(showLayer) geoLayer.addTo(map);
     window.geoJsonLayer=geoLayer;
 
     map.fitBounds(geoLayer.getBounds(),{padding:[20,20]});
