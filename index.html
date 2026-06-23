@@ -434,7 +434,7 @@ a{text-decoration:none;color:inherit}
         <div class="chip" id="cf-lbl" title="Nhãn tên">
           <i class="fa-solid fa-tags"></i>Nhãn tên
         </div>
-        <div class="chip" id="cf-layer" title="Lớp ranh giới">
+        <div class="chip on" id="cf-layer" title="Lớp ranh giới">
           <i class="fa-solid fa-draw-polygon"></i>Ranh giới
         </div>
       </div>
@@ -512,7 +512,7 @@ const COLORS = {
 let map, geoLayer, labelsGroup;
 let allFeatures = [];
 let activeFilter = 'all';
-let showLabels = false, showLayer = false;
+let showLabels = false, showLayer = true;
 let opacity = 0.6;
 let activeCard = null, activeLeafLayer = null;
 let sortBy = 'name';
