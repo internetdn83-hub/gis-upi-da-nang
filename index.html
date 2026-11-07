@@ -615,6 +615,28 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 
+  <!-- 3D DIGITAL TWIN CONTAINER -->
+  <div id="map-3d">
+    <div class="controls-3d">
+      <button id="btn-3d-rotate" class="c3d-btn" title="Tự động xoay 360 độ"><i class="fa-solid fa-arrows-rotate"></i> Tour 360°</button>
+      <button id="btn-3d-exag" class="c3d-btn" title="Phóng đại chiều cao"><i class="fa-solid fa-up-down"></i> Tỷ lệ: <span id="exag-val">1x</span></button>
+      <button id="btn-3d-reset" class="c3d-btn" title="Góc nhìn chuẩn hướng Bắc"><i class="fa-solid fa-compass"></i> Hướng Bắc</button>
+      <button id="btn-3d-close" class="c3d-btn close" title="Trở về bản đồ 2D"><i class="fa-solid fa-arrow-left"></i> Về 2D</button>
+    </div>
+    <div id="info-3d-card" style="display:none;" class="info-3d-popup">
+      <div class="i3d-header">
+        <span id="i3d-title"><i class="fa-solid fa-building"></i> Lô quy hoạch 3D</span>
+        <button onclick="document.getElementById('info-3d-card').style.display='none'">&times;</button>
+      </div>
+      <div class="i3d-body">
+        <div><b>Loại đất:</b> <span id="i3d-type" style="color:#60a5fa;font-weight:600"></span></div>
+        <div><b>Tầng cao tối đa:</b> <span id="i3d-floors" style="color:#f59e0b;font-weight:600"></span> tầng</div>
+        <div><b>Chiều cao mô phỏng:</b> <span id="i3d-height" style="color:#10b981;font-weight:600"></span></div>
+        <div><b>Diện tích:</b> <span id="i3d-area"></span> ha</div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
